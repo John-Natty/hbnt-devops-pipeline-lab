@@ -91,6 +91,10 @@ jobs:
     permissions:
       contents: read
       packages: write
+
+    env:
+      IMAGE_NAME: ghcr.io/john-natty/hbnt-devops-pipeline-lab
+
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
@@ -111,7 +115,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:${{ github.sha }}
-            ghcr.io/${{ github.repository }}:latest
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
