@@ -114,6 +114,7 @@ jobs:
         with:
           context: .
           push: true
+          # Traceability format: ghcr.io/${{ github.repository }}:${{ github.sha }}
           tags: |
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
             ${{ env.IMAGE_NAME }}:latest
